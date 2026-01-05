@@ -8,7 +8,11 @@ import os
 from PIL import Image
 
 # Initialize FastAPI
-app = FastAPI()
+app = FastAPI(
+    title="Blood Group Detection System",
+    description="Fingerprint-based blood group prediction using Deep Learning",
+    version="1.0.0"
+)
 
 # Load trained Keras model
 MODEL_PATH = "models/best_model.keras"
@@ -36,3 +40,4 @@ async def predict(file: UploadFile = File(...)):
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
